@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+            transition: 0.3s;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #para {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">Welcome</h1>
+
+    <input type="text" id="inputText" placeholder="Enter message">
+
+    <br><br>
+
+    <button onclick="changeHeading()">Change Heading</button>
+    <button id="bgBtn">Change Background</button>
+    <button onclick="changeFont()">Change Font Size</button>
+    <button onclick="togglePara()">Show/Hide Paragraph</button>
+    <button onclick="resetPage()">Reset</button>
+
+    <p id="para">This is a sample paragraph.</p>
+
+    <script>
+        let isVisible = true;
+
+        // onclick event
+        function changeHeading() {
+            let text = document.getElementById("inputText").value;
+            document.getElementById("heading").innerText = text || "No Input!";
+        }
+
+        // addEventListener (click)
+        document.getElementById("bgBtn").addEventListener("click", function () {
+            document.body.style.backgroundColor = 
+                "#" + Math.floor(Math.random()*16777215).toString(16);
+        });
+
+        // onchange event
+        document.getElementById("inputText").onchange = function () {
+            console.log("Input changed!");
+        };
+
+        // font size change
+        function changeFont() {
+            document.getElementById("heading").style.fontSize = 
+                Math.floor(Math.random() * 20 + 20) + "px";
+        }
+
+        // show/hide paragraph
+        function togglePara() {
+            let para = document.getElementById("para");
+            isVisible = !isVisible;
+            para.style.display = isVisible ? "block" : "none";
+        }
+
+        // reset page
+        function resetPage() {
+            document.getElementById("heading").innerText = "Welcome";
+            document.body.style.backgroundColor = "white";
+            document.getElementById("heading").style.fontSize = "32px";
+            document.getElementById("para").style.display = "block";
+            document.getElementById("inputText").value = "";
+        }
+
+        // onmouseover event
+        document.getElementById("heading").onmouseover = function () {
+            this.style.color = "red";
+        };
+
+        document.getElementById("heading").onmouseout = function () {
+            this.style.color = "black";
+        };
+    </script>
+
+</body>
+</html>
+gf56f56gf5t5re43w2
