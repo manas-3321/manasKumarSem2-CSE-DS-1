@@ -1,0 +1,10 @@
+// greet();
+
+function add(a, b) {
+    return a + b;
+}
+const greet = () => {
+    console.log("Hello First Year");
+}
+console.log(greet);
+greet();
